@@ -1,0 +1,10 @@
+version: "3.2"
+services:
+  blackstone:
+    build: ./blackstone
+    ports:
+      - 9999:9999
+  server:
+    build: ./server
+    ports:
+      - 8080:8080

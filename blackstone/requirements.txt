@@ -1,0 +1,4 @@
+grpcio-tools==1.33.2
+blackstone==0.1.15
+spacy==2.1.8
+https://blackstone-model.s3-eu-west-1.amazonaws.com/en_blackstone_proto-0.0.1.tar.gz

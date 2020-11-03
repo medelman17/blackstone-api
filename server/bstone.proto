@@ -1,0 +1,56 @@
+syntax = "proto3";
+package pb;
+
+option go_package = "github.com/medelman17/blackstone-api/server/pb";
+
+message BstoneRequest {
+  string text = 1;
+}
+
+message Entity {
+    string text = 1;
+    string label = 2;
+    int64 labelNumber = 3;
+}
+
+message Category {
+    string sentence = 1;
+    string category = 2;
+    float confidence = 3;
+}
+
+message Abbreviation {
+    string abrv = 1;
+    int64 start = 2;
+    int64 end = 3;
+    string longForm = 4;
+}
+
+message CompoundReference {
+    string reference = 1;
+}
+
+
+message BstoneEntitiesResponse {
+  repeated Entity entities = 1;
+}
+
+message BstoneCategoriesResponse {
+    repeated Category categories = 1;
+}
+
+
+message BstoneCompoundReferencesResponse {
+    repeated CompoundReference references = 1;
+}
+
+message BstoneAbbreviationsResponse {
+    repeated Abbreviation abbreviations = 1;
+}
+
+service Bstone {
+  rpc Entities(BstoneRequest) returns (BstoneEntitiesResponse) {}
+  rpc Categories(BstoneRequest) returns (BstoneCategoriesResponse) {}
+  rpc Abbreviations(BstoneRequest) returns (BstoneAbbreviationsResponse) {}
+  rpc CompoundReferences(BstoneRequest) returns (BstoneCompoundReferencesResponse) {}
+}
