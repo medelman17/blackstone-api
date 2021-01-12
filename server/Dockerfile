@@ -58,4 +58,4 @@ RUN cp /build/main .
 
 EXPOSE 8080
 
-CMD ["/dist/main"]
+CMD ["/dist/main", "--server","blackstone:9999"]
